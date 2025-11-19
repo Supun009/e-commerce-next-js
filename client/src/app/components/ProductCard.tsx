@@ -43,11 +43,13 @@ export default function ProductCard({ product }: { product: ProductType }) {
         </div>
       </Link>
       <div className="flex flex-col gap-4 p-4">
-        <h1 className="font-medium">{product.name}</h1>
-        <p className="text-sm text-gray-500">{product.shortDescription}</p>
+        <h1 className="font-medium text-sm sm:text-base">{product.name}</h1>
+        <p className="text-xs sm:text-sm font-medium text-gray-500">
+          {product.shortDescription}
+        </p>
         <div className="flex items-center text-xs gap-4">
           <div className="flex flex-col gap-1">
-            <span className="text-gray-500">Size</span>
+            <span className="text-gray-500 text-xs sm:text-sm">Size</span>
             <select
               name="size"
               id="size"
@@ -62,8 +64,8 @@ export default function ProductCard({ product }: { product: ProductType }) {
             </select>
           </div>
           <div className="flex flex-col gap-1">
-            <span className="text-gray-500">Color</span>
-            <div className="flex items-center gap-2">
+            <span className="text-gray-500 text-xs sm:text-sm">Color</span>
+            <div className="flex items-center gap-1 dm:gap-2">
               {product.colors.map((color) => (
                 <div
                   className={`cursor-pointer border-1 ${
@@ -84,16 +86,20 @@ export default function ProductCard({ product }: { product: ProductType }) {
           </div>
         </div>
         {/* PRICE AND ADD TO CART  */}
-        <div className="flex items-center justify-between">
-          <p className="font-medium">Rs {product.price.toFixed(2)}</p>
+        <div className="flex flex-col sm:flex-row justify-between">
+          <div className="flex items-center justify-start gap-2 mb-2">
+            <p className="font-medium sm:text-base text-sm">
+              Rs {product.price.toFixed(2)}
+            </p>
+          </div>
           <button
             onClick={handleAddToCart}
-            className="ring-1 ring-gray-200 shadow-lg rounded-md px-2 py-1 text-sm 
+            className="ring-1 ring-gray-200 shadow-lg rounded-md px-1 py-1 sm:px-2 text-sm 
           cursor-pointer hover:bg-black hover:text-white transition-all duration-300
-          flex items-center gap-2"
+          flex items-center justify-center gap-1 sm:gap-2"
           >
             <ShoppingCart className="w-4 h-4" />
-            Add to cart
+            <p className="text-xs sm:text-base">Add to cart</p>
           </button>
         </div>
       </div>

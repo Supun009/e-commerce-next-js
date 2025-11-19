@@ -23,7 +23,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
   const handleAddToCart = () => {
     addToCart({
       ...product,
-      quentity: 1,
+      quantity: 1,
       selectedSize: productType.size,
       selectedColor: productType.color,
     });

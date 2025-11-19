@@ -29,13 +29,11 @@ export const generateMetadata = async () => {
 };
 
 export default async function ProductPage({
-  params,
   searchParams,
 }: {
   params: Promise<{ id: string }>;
   searchParams: Promise<{ color?: string; size?: string }>;
 }) {
-  const { id } = await params;
   const { size, color } = await searchParams;
 
   const selectedSize = (size || product.sizes[0]) as string;
